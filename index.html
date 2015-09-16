@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Slack coding exercise</title>
+<link rel="stylesheet" href="css/jquery-ui.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.8.0/codemirror.css"/>
+<style type="text/css">
+      .CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black; height: 500px}
+      .CodeMirror-selected  { background-color: blue !important; }
+      .CodeMirror-selectedtext { color: white; }
+      .styled-background { background-color: #ff7; }
+</style>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src='js/main.js'></script>
+<script src='js/tidy.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.8.0/codemirror.js"></script> 
+<script src="http://codemirror.net/mode/xml/xml.js"></script>
+<script>
+</script>
+</head>
+
+<body>
+<div align="center" class="ui-widget">
+  <!--<label for="query">Query:</label>-->
+            <input id="url_query" placeholder="Enter valid URL" name="url_query" type="text"/><input id="bt_summary" name="bt_summary" onclick="g_HtmlSummary.SummaryClick();" type="button" value="HTML Summary" />
+</div>
+<div id='summaryresults'>
+        <br/> <br/>
+        <div align="center" id='results'>
+            <table id="countsummary">
+            </table>
+    	</div>
+        <div id='htmlplaceholder'>
+        </div>
+    </div>  
+</body>
+
+</html>
