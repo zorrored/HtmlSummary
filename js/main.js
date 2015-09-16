@@ -225,7 +225,7 @@ $(function()
                     var suggestions = [];
                     $.each(data.SearchSuggestion.Section, function (i, val) {
                         // Do not show non url like suggestions.
-                        if (val.Text.indexOf('.') != -1)
+                        if (val.Text.indexOf('.') != -1 && val.Text.indexOf(' ') == -1)
                         {
                             suggestions.push(val.Text);
                         }
