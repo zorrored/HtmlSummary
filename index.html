@@ -16,6 +16,7 @@
 <script src="js/jquery-ui.min.js"></script>
 <script src='js/main.js'></script>
 <script src='js/tidy.js'></script>
+<script src='js/sorttable.js'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.8.0/codemirror.js"></script> 
 <script src="http://codemirror.net/mode/xml/xml.js"></script>
 <script>
@@ -29,8 +30,14 @@
 </div>
 <div id='summaryresults'>
         <br/> <br/>
-        <div align="center" id='results'>
+        <div align="center" id='results' style="display:none">
             <table id="countsummary">
+                <thead>
+                    <tr>
+                        <th bgcolor=#66FF99 ><a href='#'>HtmlTag</a></th>
+                        <th bgcolor=#66FF99><a href='#'>Count</a></th>
+                    </tr>
+                </thead>
             </table>
     	</div>
         <div id='htmlplaceholder'>

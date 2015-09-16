@@ -112,6 +112,9 @@ function HtmlSummary()
         // Prepare the boiler plate.
         $('#summaryresults').append(m_htmlPlaceholder);
         
+        // Show table
+        $('#results').show();
+        
         // For each html node process a row.
         for (var key in data["nodes"]) {
             if (key != "htmlcode") 
@@ -119,6 +122,10 @@ function HtmlSummary()
                 drawRow(key, data["nodes"][key]);
             }
         }
+        
+        // Initialize the new table constructed with sorttable.
+        var newTableObject = document.getElementById('countsummary');
+        sorttable.makeSortable(newTableObject);
         
         // Create text area for html source code.
         $("#htmlplaceholder").append('<textarea id="htmlcontent" class="editor" data-editor-lang="text/html" readonly>');
