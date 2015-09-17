@@ -5,7 +5,7 @@ function HtmlSummary()
     var m_Keyword = "";
     var m_Markers = [];
     var m_PreviousCell;
-    
+    var m_PrevRange;
     function queryBackend(url)
     {
         $.ajax({
@@ -40,14 +40,20 @@ function HtmlSummary()
         
     }
     function doMatchTags(cm, keyword) {
-        var range = cm.getViewport();
+        
+        var range = cm.getViewport(); 
         cm.eachLine(range.from, range.to, searchMarkTextInView);   
         
         // If we did not find anything to mark in the current viewport, scroll and call again until we find.
+        // Protect from infinite recursion by detecting end of doc.
         if (m_Markers.length == 0)
         {
-            m_Editor.execCommand("goPageDown");
-            doMatchTags(cm, keyword);
+            if (m_PrevRange == undefined || m_PrevRange.to != range.to)
+            {
+                m_PrevRange = range;
+                m_Editor.execCommand("goPageDown");
+                doMatchTags(cm, keyword);
+            }
         }
         // TODO: Follow up with CodeMirror folks as scrollIntoView does not move view to the right place.
         /*
